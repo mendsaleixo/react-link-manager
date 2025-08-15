@@ -1,12 +1,4 @@
-// Arquivo: src/components/LinkList.tsx
-
-import type { LinkType } from "../types";
-
-type LinkListProps = {
-  links: LinkType[];
-};
-
-function LinkList({ links }: LinkListProps) {
+function LinkList({ links }) {
   return (
     <ul>
       {links.map((link) => (
