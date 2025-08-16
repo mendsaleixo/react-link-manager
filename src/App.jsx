@@ -26,10 +26,15 @@ function App() {
     fetchLinks();
   }, []);
 
+  const handleAddNewLink = (newLinkData) => {
+    console.log("Novo link recebido no componente App:", newLinkData);
+    // (Aqui, no futuro, faremos a chamada para a API)
+  };
+
   return (
     <div>
       <h1>Gerenciador de Links</h1>
-      <LinkForm />
+      <LinkForm onAddNewLink={handleAddNewLink} />
       <LinkList links={links} />
     </div>
   );

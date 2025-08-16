@@ -1,14 +1,37 @@
+// Arquivo: src/components/LinkForm.jsx
+
 import { useState } from "react";
 
-function LinkForm() {
+function LinkForm({ onAddNewLink }) {
   const [titulo, setTitulo] = useState("");
   const [url, setUrl] = useState("");
   const [categoria, setCategoria] = useState("");
 
-  return (
-    <form onSubmit={() => {}}>
-      <h2>Adicionar Novo Link</h2>
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
+    if (!titulo || !url || !categoria) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    const newLinkData = {
+      titulo: titulo,
+      url: url,
+      categoria: categoria,
+      lido: false,
+    };
+
+    onAddNewLink(newLinkData);
+
+    setTitulo("");
+    setUrl("");
+    setCategoria("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Adicionar Novo Link</h2>
       <div>
         <label htmlFor="titulo">Título</label>
         <input
