@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import LinkList from "./components/LinkList";
+import LinkForm from "./components/LinkForm";
 
-
-const apiUrl = 'https://my-json-server.typicode.com/mendsaleixo/link-manager-api/links';
+const apiUrl =
+  "https://my-json-server.typicode.com/mendsaleixo/link-manager-api/links";
 
 function App() {
   const [links, setLinks] = useState([]);
@@ -14,7 +15,7 @@ function App() {
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error('Falha ao buscar os links da API.');
+          throw new Error("Falha ao buscar os links da API.");
         }
         const data = await response.json();
         setLinks(data);
@@ -28,9 +29,10 @@ function App() {
   return (
     <div>
       <h1>Gerenciador de Links</h1>
+      <LinkForm />
       <LinkList links={links} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
