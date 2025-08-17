@@ -1,13 +1,26 @@
-function LinkItem({ link }) {
+// Arquivo: src/components/LinkItem.jsx
+
+function LinkItem({ link, onToggleLido }) {
+  if (!link) {
+    return null;
+  }
+
+  const liClassName = link.lido ? "completa" : "";
+
   return (
-    <li key={link.id}>
+    <li className={liClassName}>
       <div className="task-content">
-        <input type="checkbox" />
-        <span>{link.titulo} ({link.categoria})</span>
+        <input
+          type="checkbox"
+          checked={!!link.lido}
+          onChange={() => onToggleLido(link.id)}
+        />
+        <a href={link.url} target="_blank" rel="noopener noreferrer">
+          {link.titulo}
+        </a>
+        <span>({link.categoria})</span>
       </div>
-      <button className="delete-btn">
-        Excluir
-      </button>
+      <button className="delete-btn">Excluir</button>
     </li>
   );
 }

@@ -1,5 +1,3 @@
-// Arquivo: src/components/LinkForm.jsx
-
 import { useState } from "react";
 
 function LinkForm({ onAddNewLink }) {
@@ -40,9 +38,9 @@ function LinkForm({ onAddNewLink }) {
           placeholder="Ex: Documentação do React"
           value={titulo}
           onChange={(event) => setTitulo(event.target.value)}
+          required
         />
       </div>
-
       <div>
         <label htmlFor="url">URL</label>
         <input
@@ -51,9 +49,9 @@ function LinkForm({ onAddNewLink }) {
           placeholder="https://react.dev"
           value={url}
           onChange={(event) => setUrl(event.target.value)}
+          required
         />
       </div>
-
       <div>
         <label htmlFor="categoria">Categoria</label>
         <input
@@ -62,9 +60,9 @@ function LinkForm({ onAddNewLink }) {
           placeholder="Programação"
           value={categoria}
           onChange={(event) => setCategoria(event.target.value)}
+          required
         />
       </div>
-
       <button type="submit">Adicionar</button>
     </form>
   );
