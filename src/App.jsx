@@ -26,9 +26,27 @@ function App() {
     fetchLinks();
   }, []);
 
-  const handleAddNewLink = (newLinkData) => {
-    console.log("Novo link recebido no componente App:", newLinkData);
-    // (Aqui, no futuro, faremos a chamada para a API)
+  const handleAddNewLink = async (newLinkData) => {
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLinkData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha ao adicionar o novo link.");
+      }
+
+      const newLink = await response.json();
+
+      setLinks([...links, newLink]);
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível salvar o novo link.");
+    }
   };
 
   return (
