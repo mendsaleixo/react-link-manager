@@ -15,6 +15,34 @@
   margin-bottom: 2rem;
   font-weight: 700;
 }
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  margin: 0; /* Remove a margem do h1 para alinhá-lo corretamente */
+}
+
+.primary-button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+}
 
 /* Estilos do Formulário */
 .link-form h2 {
