@@ -1,3 +1,4 @@
+// Recebe a prop 'onToggleLido'
 function LinkItem({ link, onToggleLido, onDeleteLink }) {
   if (!link) {
     return null;

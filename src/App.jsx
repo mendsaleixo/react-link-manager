@@ -58,6 +58,7 @@ function App() {
 
   const handleToggleLido = async (idToToggle) => {
     const linkToUpdate = links.find((link) => link.id === idToToggle);
+
     if (!linkToUpdate) return;
 
     const updatedLink = {
@@ -67,24 +68,24 @@ function App() {
 
     try {
       const response = await fetch(`${apiUrl}?id=eq.${idToToggle}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           ...apiHeaders,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updatedLink),
+        body: JSON.stringify({ lido: updatedLink.lido }),
       });
 
       if (!response.ok) {
-        throw new Error("Falha ao atualizar o status do link.");
+        throw new Error("Falha ao atualizar o status do link na API.");
       }
 
       setLinks(
         links.map((link) => (link.id === idToToggle ? updatedLink : link))
       );
     } catch (error) {
-      console.error(error);
-      alert("Não foi possível atualizar o link.");
+      console.error("Erro ao atualizar link:", error);
+      alert("Não foi possível atualizar o link. Tente novamente.");
     }
   };
 
