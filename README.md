@@ -17,7 +17,7 @@ Aplicação web completa para gerenciamento de links (favoritos), construída co
 
 ## 🎯 Objetivo do Projeto
 
-Este projeto foi desenvolvido como o segundo passo em uma jornada de aprendizado, servindo como uma evolução direta de uma [aplicação similar construída com JavaScript puro](URL_DO_SEU_PROJETO_VANILLA_JS_AQUI). O objetivo principal foi solidificar os conceitos fundamentais do **React** e do **TypeScript**, compreendendo na prática os problemas que essas tecnologias resolvem em comparação com a manipulação manual do DOM.
+Este projeto foi desenvolvido como o segundo passo em uma jornada de aprendizado, servindo como uma evolução direta de uma [aplicação similar construída com JavaScript puro][(URL_DO_SEU_PROJETO_VANILLA_JS_AQUI)](https://github.com/mendsaleixo/estudos-APIs). O objetivo principal foi solidificar os conceitos fundamentais do **React** e do **TypeScript**, compreendendo na prática os problemas que essas tecnologias resolvem em comparação com a manipulação manual do DOM.
 
 O foco foi construir uma aplicação que seguisse as melhores práticas do mercado, incluindo:
 * **Arquitetura baseada em componentes:** Quebrar a UI em pedaços lógicos e reutilizáveis.
