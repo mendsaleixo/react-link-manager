@@ -1,12 +1,15 @@
-// Arquivo: src/components/LinkList.jsx
-
 import LinkItem from "./LinkItem";
 
-function LinkList({ links, onToggleLido }) {
+function LinkList({ links, onToggleLido, onDeleteLink }) {
   return (
     <ul>
       {links.map((link) => (
-        <LinkItem key={link.id} link={link} onToggleLido={onToggleLido} />
+        <LinkItem
+          key={link.id}
+          link={link}
+          onToggleLido={onToggleLido}
+          onDeleteLink={onDeleteLink}
+        />
       ))}
     </ul>
   );

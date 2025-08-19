@@ -1,6 +1,4 @@
-// Arquivo: src/components/LinkItem.jsx
-
-function LinkItem({ link, onToggleLido }) {
+function LinkItem({ link, onToggleLido, onDeleteLink }) {
   if (!link) {
     return null;
   }
@@ -20,7 +18,9 @@ function LinkItem({ link, onToggleLido }) {
         </a>
         <span>({link.categoria})</span>
       </div>
-      <button className="delete-btn">Excluir</button>
+      <button className="delete-btn" onClick={() => onDeleteLink(link.id)}>
+        Excluir
+      </button>
     </li>
   );
 }
