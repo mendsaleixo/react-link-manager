@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import LinkList from "./components/LinkList";
 import LinkForm from "./components/LinkForm";
 import "./App.css";
+import Modal from "./components/Modal";
 
 const apiUrl = "https://ntraydvhubcxyjyfomjx.supabase.co/rest/v1/links";
 const apiKey =
@@ -13,6 +14,7 @@ const apiHeaders = {
 
 function App() {
   const [links, setLinks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const buscarLinks = async () => {
     try {
@@ -49,6 +51,7 @@ function App() {
       }
 
       buscarLinks();
+      setIsModalOpen(false);
     } catch (error) {
       console.error("Erro em handleAddNewLink:", error);
       alert("Não foi possível salvar o novo link.");
@@ -113,13 +116,20 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Gerenciador de Links</h1>
-      <LinkForm onAddNewLink={handleAddNewLink} />
+      <header className="app-header">
+        <h1>Gerenciador de Links</h1>
+        <button className="primary-button" onClick={() => setIsModalOpen(true)}>
+          Adicionar Novo Link
+        </button>
+      </header>
       <LinkList
         links={links}
         onToggleLido={handleToggleLido}
         onDeleteLink={handleDeleteLink}
       />
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <LinkForm onAddNewLink={handleAddNewLink} />
+      </Modal>
     </div>
   );
 }
