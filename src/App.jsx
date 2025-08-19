@@ -115,6 +115,29 @@ function App() {
     }
   };
 
+  const handleUpdateLink = async (idToUpdate, updatedData) => {
+    try {
+      const response = await fetch(`${apiUrl}?id=eq.${idToUpdate}`, {
+        method: "PATCH",
+        headers: { ...apiHeaders, "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha ao atualizar o link na API.");
+      }
+
+      setLinks(
+        links.map((link) =>
+          link.id === idToUpdate ? { ...link, ...updatedData } : link
+        )
+      );
+    } catch (error) {
+      console.error("Erro ao atualizar link:", error);
+      alert("Não foi possível atualizar o link.");
+    }
+  };
+
   return (
     <div className="app-container">
       <header className="app-header">
@@ -129,6 +152,7 @@ function App() {
         onDeleteLink={handleDeleteLink}
         editingLinkId={editingLinkId}
         setEditingLinkId={setEditingLinkId}
+        onUpdateLink={handleUpdateLink}
       />
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <LinkForm onAddNewLink={handleAddNewLink} />

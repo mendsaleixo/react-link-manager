@@ -329,7 +329,6 @@
   color: var(--text-color);
 }
 
-/* Sobrescreve o estilo para o botão de deletar ser mais destacado no hover */
 .link-actions .delete-btn:hover {
   border-color: var(--danger-color);
   color: var(--danger-color);

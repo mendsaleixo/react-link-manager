@@ -1,14 +1,14 @@
 import LinkItem from "./LinkItem";
-
 function LinkList({
   links,
   onToggleLido,
   onDeleteLink,
   editingLinkId,
   setEditingLinkId,
+  onUpdateLink,
 }) {
   return (
-    <ul>
+    <ul className="link-list">
       {links.map((link) => (
         <LinkItem
           key={link.id}
@@ -17,10 +17,10 @@ function LinkList({
           onDeleteLink={onDeleteLink}
           isEditing={link.id === editingLinkId}
           setEditingLinkId={setEditingLinkId}
+          onUpdateLink={onUpdateLink}
         />
       ))}
     </ul>
   );
 }
-
 export default LinkList;

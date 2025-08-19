@@ -1,5 +1,3 @@
-// Arquivo: src/components/LinkItem.jsx
-
 import { useState } from "react";
 
 function LinkItem({
@@ -8,6 +6,7 @@ function LinkItem({
   onDeleteLink,
   isEditing,
   setEditingLinkId,
+  onUpdateLink,
 }) {
   if (!link) {
     return null;
@@ -17,7 +16,24 @@ function LinkItem({
   const [editedUrl, setEditedUrl] = useState(link.url);
   const [editedCategoria, setEditedCategoria] = useState(link.categoria);
 
-  /**Visualização em modo edição */
+  const handleSave = () => {
+    const updatedData = {
+      titulo: editedTitulo.trim(),
+      url: editedUrl.trim(),
+      categoria: editedCategoria.trim(),
+    };
+
+    if (!updatedData.titulo || !updatedData.url || !updatedData.categoria) {
+      alert("Todos os campos devem ser preenchidos.");
+      return;
+    }
+
+    onUpdateLink(link.id, updatedData);
+
+    setEditingLinkId(null);
+  };
+
+  //Visualização em modo edição
   if (isEditing) {
     return (
       <li className="link-item editing">
@@ -26,20 +42,23 @@ function LinkItem({
             type="text"
             value={editedTitulo}
             onChange={(e) => setEditedTitulo(e.target.value)}
+            placeholder="Título"
           />
           <input
             type="text"
             value={editedUrl}
             onChange={(e) => setEditedUrl(e.target.value)}
+            placeholder="URL"
           />
           <input
             type="text"
             value={editedCategoria}
             onChange={(e) => setEditedCategoria(e.target.value)}
+            placeholder="Categoria"
           />
         </div>
         <div className="edit-actions">
-          <button>Salvar</button>
+          <button onClick={handleSave}>Salvar</button>
           <button className="cancel-btn" onClick={() => setEditingLinkId(null)}>
             Cancelar
           </button>
@@ -48,7 +67,7 @@ function LinkItem({
     );
   }
 
-  /**Visualização modo normal*/
+  // Visualização normal
   return (
     <li className={`link-item ${link.lido ? "completa" : ""}`}>
       <div className="link-info">
