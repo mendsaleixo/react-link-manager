@@ -28,9 +28,9 @@ function LinkForm({ onAddNewLink }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="link-form">
       <h2>Adicionar Novo Link</h2>
-      <div>
+      <div className="form-group">
         <label htmlFor="titulo">Título</label>
         <input
           type="text"
@@ -41,7 +41,7 @@ function LinkForm({ onAddNewLink }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group"> 
         <label htmlFor="url">URL</label>
         <input
           type="url"
@@ -52,7 +52,7 @@ function LinkForm({ onAddNewLink }) {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label htmlFor="categoria">Categoria</label>
         <input
           type="text"
@@ -63,7 +63,9 @@ function LinkForm({ onAddNewLink }) {
           required
         />
       </div>
-      <button type="submit">Adicionar</button>
+       <button type="submit" className="form-button">
+        Adicionar
+      </button>
     </form>
   );
 }

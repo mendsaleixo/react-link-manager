@@ -2,7 +2,7 @@ import LinkItem from "./LinkItem";
 
 function LinkList({ links, onToggleLido, onDeleteLink }) {
   return (
-    <ul>
+    <ul className="link-list">
       {links.map((link) => (
         <LinkItem
           key={link.id}

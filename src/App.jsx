@@ -1,8 +1,7 @@
-// Arquivo: src/App.jsx
-
 import { useState, useEffect } from "react";
 import LinkList from "./components/LinkList";
 import LinkForm from "./components/LinkForm";
+import "./App.css";
 
 const apiUrl = "https://ntraydvhubcxyjyfomjx.supabase.co/rest/v1/links";
 const apiKey =
@@ -113,7 +112,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Gerenciador de Links</h1>
       <LinkForm onAddNewLink={handleAddNewLink} />
       <LinkList

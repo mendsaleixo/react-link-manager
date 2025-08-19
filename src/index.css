@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+:root {
+  --bg-gradient: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(53, 4, 112, 1) 38%,
+    rgba(114, 7, 168, 1) 100%
+  );
+  --surface-color: #1f1f23;
+  --border-color: #323238;
+  --primary-color: #8257e5;
+  --primary-hover-color: #996dff;
+  --text-color: #e1e1e6;
+  --text-secondary-color: #a8a8b3;
+  --input-bg-color: #121214;
+  --danger-color: #f75a68;
+  --danger-hover-bg: rgba(247, 90, 104, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  font-family: "Inter", sans-serif;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+}

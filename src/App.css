@@ -1,0 +1,181 @@
+/* Container Principal da Aplicação */
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.app-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+/* Estilos do Formulário */
+.link-form h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-secondary-color);
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+}
+
+.form-group input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.form-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.form-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Estilos da Lista e dos Itens */
+.link-list {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  animation: fadeIn 0.5s ease;
+}
+
+.link-item:last-child {
+  border-bottom: none;
+}
+
+.link-item.completa .link-info a {
+  text-decoration: line-through;
+  color: var(--text-secondary-color);
+}
+
+.link-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.link-info a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+.link-info a:hover {
+  color: var(--primary-color);
+}
+
+.link-info .categoria {
+  font-size: 0.875rem;
+  color: var(--text-secondary-color);
+  background-color: var(--border-color);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.link-info input[type="checkbox"] {
+  flex-shrink: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  display: grid;
+  place-content: center;
+}
+
+.link-info input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.link-info input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.link-info input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary-color);
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  color: var(--danger-color);
+  background-color: var(--danger-hover-bg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

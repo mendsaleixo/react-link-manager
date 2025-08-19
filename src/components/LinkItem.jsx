@@ -1,14 +1,11 @@
-// Recebe a prop 'onToggleLido'
 function LinkItem({ link, onToggleLido, onDeleteLink }) {
   if (!link) {
     return null;
   }
 
-  const liClassName = link.lido ? "completa" : "";
-
   return (
-    <li className={liClassName}>
-      <div className="task-content">
+    <li className={`link-item ${link.lido ? "completa" : ""}`}>
+      <div className="link-info">
         <input
           type="checkbox"
           checked={!!link.lido}
@@ -17,7 +14,7 @@ function LinkItem({ link, onToggleLido, onDeleteLink }) {
         <a href={link.url} target="_blank" rel="noopener noreferrer">
           {link.titulo}
         </a>
-        <span>({link.categoria})</span>
+        <span className="categoria">{link.categoria}</span>
       </div>
       <button className="delete-btn" onClick={() => onDeleteLink(link.id)}>
         Excluir
