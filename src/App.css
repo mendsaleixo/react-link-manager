@@ -245,3 +245,93 @@
 .modal-close-button:hover {
   color: var(--text-color);
 }
+
+.link-item.editing {
+  flex-direction: column; /* Empilha os inputs e os botões */
+  align-items: stretch; /* Faz os filhos ocuparem toda a largura */
+  gap: 1rem;
+}
+
+/* Container dos inputs de edição */
+.edit-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Estilo dos inputs de edição - parecido com os do formulário principal */
+.edit-inputs input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  font-size: 0.9rem; /* Um pouco menor para caber melhor */
+}
+
+.edit-inputs input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Container para os botões Salvar/Cancelar */
+.edit-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 0.5rem;
+}
+
+/* Estilo genérico para os botões de ação na edição */
+.edit-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+/* Estilo do botão 'Salvar' (primário) */
+.edit-actions button:first-child {
+  background-color: var(--primary-color);
+  color: white;
+}
+.edit-actions button:first-child:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Estilo do botão 'Cancelar' (secundário) */
+.edit-actions .cancel-btn {
+  background-color: transparent;
+  color: var(--text-secondary-color);
+}
+.edit-actions .cancel-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* --- Ajuste nos botões da visualização normal --- */
+.link-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.link-actions button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.link-actions button:hover {
+  border-color: var(--text-color);
+  color: var(--text-color);
+}
+
+/* Sobrescreve o estilo para o botão de deletar ser mais destacado no hover */
+.link-actions .delete-btn:hover {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+  background-color: var(--danger-hover-bg);
+}

@@ -1,14 +1,22 @@
 import LinkItem from "./LinkItem";
 
-function LinkList({ links, onToggleLido, onDeleteLink }) {
+function LinkList({
+  links,
+  onToggleLido,
+  onDeleteLink,
+  editingLinkId,
+  setEditingLinkId,
+}) {
   return (
-    <ul className="link-list">
+    <ul>
       {links.map((link) => (
         <LinkItem
           key={link.id}
           link={link}
           onToggleLido={onToggleLido}
           onDeleteLink={onDeleteLink}
+          isEditing={link.id === editingLinkId}
+          setEditingLinkId={setEditingLinkId}
         />
       ))}
     </ul>

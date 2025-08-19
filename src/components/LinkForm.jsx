@@ -8,15 +8,31 @@ function LinkForm({ onAddNewLink }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!titulo || !url || !categoria) {
+    const trimmedTitulo = titulo.trim();
+    const trimmedUrl = url.trim();
+    const trimmedCategoria = categoria.trim();
+
+    if (!trimmedTitulo || !trimmedUrl || !trimmedCategoria) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
 
+    let finalUrl = trimmedUrl;
+    if (!finalUrl.startsWith("http")) {
+      finalUrl = `https://${finalUrl}`;
+    }
+
+    try {
+      new URL(finalUrl);
+    } catch (error) {
+      alert("Por favor, insira uma URL válida.");
+      return;
+    }
+
     const newLinkData = {
-      titulo: titulo,
-      url: url,
-      categoria: categoria,
+      titulo: trimmedTitulo,
+      url: finalUrl,
+      categoria: trimmedCategoria,
       lido: false,
     };
 
@@ -41,12 +57,12 @@ function LinkForm({ onAddNewLink }) {
           required
         />
       </div>
-      <div className="form-group"> 
+      <div className="form-group">
         <label htmlFor="url">URL</label>
         <input
-          type="url"
+          type="text"
           id="url"
-          placeholder="https://react.dev"
+          placeholder="react.dev"
           value={url}
           onChange={(event) => setUrl(event.target.value)}
           required
@@ -63,7 +79,7 @@ function LinkForm({ onAddNewLink }) {
           required
         />
       </div>
-       <button type="submit" className="form-button">
+      <button type="submit" className="form-button">
         Adicionar
       </button>
     </form>

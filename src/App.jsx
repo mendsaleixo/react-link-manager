@@ -15,6 +15,7 @@ const apiHeaders = {
 function App() {
   const [links, setLinks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingLinkId, setEditingLinkId] = useState(null);
 
   const buscarLinks = async () => {
     try {
@@ -126,6 +127,8 @@ function App() {
         links={links}
         onToggleLido={handleToggleLido}
         onDeleteLink={handleDeleteLink}
+        editingLinkId={editingLinkId}
+        setEditingLinkId={setEditingLinkId}
       />
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <LinkForm onAddNewLink={handleAddNewLink} />
