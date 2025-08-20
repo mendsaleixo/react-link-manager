@@ -36,6 +36,7 @@ function App() {
     buscarLinks();
   }, []);
 
+  /*Adiciona novo link */
   const handleAddNewLink = async (newLinkData) => {
     try {
       const response = await fetch(apiUrl, {
@@ -59,6 +60,7 @@ function App() {
     }
   };
 
+  /* Marca o link como lido */
   const handleToggleLido = async (idToToggle) => {
     const linkToUpdate = links.find((link) => link.id === idToToggle);
 
@@ -92,29 +94,7 @@ function App() {
     }
   };
 
-  const handleDeleteLink = async (idToDelete) => {
-    if (!window.confirm("Tem certeza que deseja excluir este link?")) {
-      return;
-    }
-
-    try {
-      const response = await fetch(`${apiUrl}?id=eq.${idToDelete}`, {
-        method: "DELETE",
-        headers: apiHeaders,
-      });
-
-      if (!response.ok) {
-        throw new Error("Falha ao excluir o link na API.");
-      }
-
-      setLinks(links.filter((link) => link.id !== idToDelete));
-      console.log(`Link com ID ${idToDelete} excluído com sucesso.`);
-    } catch (error) {
-      console.error(error);
-      alert("Não foi possível excluir o link.");
-    }
-  };
-
+  /**Atualiza os dados de um link da lista */
   const handleUpdateLink = async (idToUpdate, updatedData) => {
     try {
       const response = await fetch(`${apiUrl}?id=eq.${idToUpdate}`, {
@@ -135,6 +115,30 @@ function App() {
     } catch (error) {
       console.error("Erro ao atualizar link:", error);
       alert("Não foi possível atualizar o link.");
+    }
+  };
+
+  /*Apaga um link da lista*/
+  const handleDeleteLink = async (idToDelete) => {
+    if (!window.confirm("Tem certeza que deseja excluir este link?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${apiUrl}?id=eq.${idToDelete}`, {
+        method: "DELETE",
+        headers: apiHeaders,
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha ao excluir o link na API.");
+      }
+
+      setLinks(links.filter((link) => link.id !== idToDelete));
+      console.log(`Link com ID ${idToDelete} excluído com sucesso.`);
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível excluir o link.");
     }
   };
 
