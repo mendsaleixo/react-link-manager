@@ -150,6 +150,9 @@ function App() {
           Adicionar Novo Link
         </button>
       </header>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <LinkForm onAddNewLink={handleAddNewLink} />
+      </Modal>
       <LinkList
         links={links}
         onToggleLido={handleToggleLido}
@@ -158,9 +161,6 @@ function App() {
         setEditingLinkId={setEditingLinkId}
         onUpdateLink={handleUpdateLink}
       />
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <LinkForm onAddNewLink={handleAddNewLink} />
-      </Modal>
     </div>
   );
 }
