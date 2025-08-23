@@ -33,7 +33,7 @@ function LinkForm({ onAddNewLink }) {
       titulo: trimmedTitulo,
       url: finalUrl,
       categoria: trimmedCategoria,
-      lido: false,
+      read: false,
     };
 
     onAddNewLink(newLinkData);

@@ -1,7 +1,7 @@
 import LinkItem from "./LinkItem";
 function LinkList({
   links,
-  onToggleLido,
+  onToggleRead,
   onDeleteLink,
   editingLinkId,
   setEditingLinkId,
@@ -13,7 +13,7 @@ function LinkList({
         <LinkItem
           key={link.id}
           link={link}
-          onToggleLido={onToggleLido}
+          onToggleRead={onToggleRead}
           onDeleteLink={onDeleteLink}
           isEditing={link.id === editingLinkId}
           setEditingLinkId={setEditingLinkId}

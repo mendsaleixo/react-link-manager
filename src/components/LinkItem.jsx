@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function LinkItem({
   link,
-  onToggleLido,
+  onToggleRead,
   onDeleteLink,
   isEditing,
   setEditingLinkId,
@@ -69,12 +69,12 @@ function LinkItem({
 
   // Visualização normal
   return (
-    <li className={`link-item ${link.lido ? "completa" : ""}`}>
+    <li className={`link-item ${link.read ? "completa" : ""}`}>
       <div className="link-info">
         <input
           type="checkbox"
-          checked={!!link.lido}
-          onChange={() => onToggleLido(link.id)}
+          checked={!!link.read}
+          onChange={() => onToggleRead(link.id)}
         />
         <a href={link.url} target="_blank" rel="noopener noreferrer">
           {link.titulo}

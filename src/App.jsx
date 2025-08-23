@@ -65,14 +65,14 @@ function App() {
   };
 
   /* Marca o link como lido */
-  const handleToggleLido = async (idToToggle) => {
+  const handleToggleRead = async (idToToggle) => {
     const linkToUpdate = links.find((link) => link.id === idToToggle);
 
     if (!linkToUpdate) return;
 
     const updatedLink = {
       ...linkToUpdate,
-      lido: !linkToUpdate.lido,
+      read: !linkToUpdate.read,
     };
 
     try {
@@ -82,7 +82,7 @@ function App() {
           ...apiHeaders,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ lido: updatedLink.lido }),
+        body: JSON.stringify({ read: updatedLink.read }),
       });
 
       if (!response.ok) {
@@ -193,7 +193,7 @@ function App() {
       </Modal>
       <LinkList
         links={links}
-        onToggleLido={handleToggleLido}
+        onToggleRead={handleToggleRead}
         onDeleteLink={handleDeleteLink}
         editingLinkId={editingLinkId}
         setEditingLinkId={setEditingLinkId}
