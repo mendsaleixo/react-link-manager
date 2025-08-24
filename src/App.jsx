@@ -6,9 +6,9 @@ import "./App.css";
 import { Toaster, toast } from "react-hot-toast";
 
 /*API -  Supabase*/
-const apiUrl = "https://ntraydvhubcxyjyfomjx.supabase.co/rest/v1/links";
-const apiKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50cmF5ZHZodWJjeHlqeWZvbWp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU0NjkxMjMsImV4cCI6MjA3MTA0NTEyM30.7Y_-eA9tv5fzwsFoFsDBWgKJ33agQW8v_jhDf3ogTDU";
+const apiUrl = import.meta.env.VITE_SUPABASE_URL;
+const apiKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
 const apiHeaders = {
   apikey: apiKey,
   Authorization: `Bearer ${apiKey}`,
@@ -165,7 +165,7 @@ function App() {
       {
         duration: 6000,
         style: {
-          border: "1px solid var(--danger-color)", // Dando um destaque a mais
+          border: "1px solid var(--danger-color)",
         },
       }
     );
