@@ -1,6 +1,6 @@
 // /server/src/controllers/link.controller.js
 
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 // --- CREATE ---
@@ -8,14 +8,14 @@ const createLink = async (req, res) => {
   try {
     const { title, url } = req.body;
     if (!title || !url) {
-      return res.status(400).json({ error: 'Título e URL são obrigatórios.' });
+      return res.status(400).json({ error: "Título e URL são obrigatórios." });
     }
     const newLink = await prisma.link.create({
       data: { title, url },
     });
     res.status(201).json(newLink);
   } catch (error) {
-    res.status(500).json({ error: 'Não foi possível criar o link.' });
+    res.status(500).json({ error: "Não foi possível criar o link." });
   }
 };
 
@@ -25,7 +25,7 @@ const getAllLinks = async (req, res) => {
     const links = await prisma.link.findMany();
     res.status(200).json(links);
   } catch (error) {
-    res.status(500).json({ error: 'Não foi possível buscar os links.' });
+    res.status(500).json({ error: "Não foi possível buscar os links." });
   }
 };
 
@@ -35,11 +35,11 @@ const getLinkById = async (req, res) => {
     const { id } = req.params;
     const link = await prisma.link.findUnique({ where: { id } });
     if (!link) {
-      return res.status(404).json({ error: 'Link não encontrado.' });
+      return res.status(404).json({ error: "Link não encontrado." });
     }
     res.status(200).json(link);
   } catch (error) {
-    res.status(500).json({ error: 'Não foi possível buscar o link.' });
+    res.status(500).json({ error: "Não foi possível buscar o link." });
   }
 };
 
@@ -54,7 +54,7 @@ const updateLink = async (req, res) => {
     });
     res.status(200).json(updatedLink);
   } catch (error) {
-    res.status(500).json({ error: 'Não foi possível atualizar o link.' });
+    res.status(500).json({ error: "Não foi possível atualizar o link." });
   }
 };
 
@@ -65,7 +65,7 @@ const deleteLink = async (req, res) => {
     await prisma.link.delete({ where: { id } });
     res.status(204).send(); // Sucesso, sem conteúdo para retornar
   } catch (error) {
-    res.status(500).json({ error: 'Não foi possível deletar o link.' });
+    res.status(500).json({ error: "Não foi possível deletar o link." });
   }
 };
 
